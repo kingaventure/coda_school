@@ -15,7 +15,10 @@
 <body>
     <div class="container">
         <?php
-            require "Controller/login.php";
+            if(isset($_GET['component'])) {
+                $componentName = cleanString($_GET['component']);
+                require "Controller/$componentName.php";
+            }
         ?>
 
     </div>
