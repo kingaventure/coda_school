@@ -1,6 +1,6 @@
 <?php 
     require "includes/database.php";
-
+    require "includes/function.php";
 
 ?>
 

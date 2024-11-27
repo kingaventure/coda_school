@@ -1,5 +1,4 @@
 <?php   
-
     require "Model/login.php";
 
 
@@ -9,7 +8,11 @@
         $pass = !empty($_POST['pass']) ? $_POST['pass'] : NULL;
 
         if(!empty($username) && !empty($pass))  {
-            
+            $username = cleanString($username);
+            $pass = cleanString($pass);
+
+            $user = getUser($pdo, $username);
+            var_dump($user);   
         }
 
     }
