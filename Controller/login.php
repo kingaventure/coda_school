@@ -12,7 +12,9 @@
             $pass = cleanString($pass);
 
             $user = getUser($pdo, $username);
-            var_dump($user);   
+            if (is_array($user)){
+                $isMatchPassword = password_verify($pass, $user['password']);
+            }
         }
 
     }
