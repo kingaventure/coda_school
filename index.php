@@ -1,7 +1,8 @@
 <?php 
+    session_start();
     require "includes/database.php";
     require "includes/function.php";
-
+    $errors = [];
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +16,17 @@
 <body>
     <div class="container">
         <?php
-            if(isset($_GET['component'])) {
-                $componentName = cleanString($_GET['component']);
-                require "Controller/$componentName.php";
+        if (isset($_SESSION['auth'])){
+                if(isset($_GET['component'])) {
+                    $componentName = cleanString($_GET['component']);
+                    if(file_exists("Controller/$componentName.php")){
+                        require "Controller/$componentName.php";
+                    }
+                }
+            } else {
+                require 'Controller/login.php';
             }
+            require "partials/errors.php";
         ?>
 
     </div>
