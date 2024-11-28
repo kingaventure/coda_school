@@ -1,12 +1,4 @@
-    <div class="container">
-        <?php if(!empty($errors)): ?>
-            <?php  foreach ($errors as $error): ?>
-                <div class="alert alert-danger" role="alert">
-                    <?php  echo $error; ?>
-                </div>
-            <?php endforeach; ?>
-        <?php endif;?>
-        <form method="post">
+<form method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Identifiant</label>
                 <input type="text" name="username" id="username" class="form-control" value="<?php echo (isset($user['username'])) ? $user['username'] : '' ?>"  required>
@@ -33,7 +25,12 @@
                 <label class="form-check-label" for="enabled">Actif</label>
             </div>
             <div class="mb-3 d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary" name="edit_button"> Enregistrer</button>
+                <button type="submit" 
+                class="btn <?php echo (isset($_GET['id'])) ? 'btn-success' : 'btn-primary';  ?>"
+                name="<?php echo (isset($_GET['id'])) ? 'edit_button' : 'valid_button';  ?>"
+                
+                >
+                <?php echo isset($_GET['id']) ? 'Enregistrer' : 'Créer'; ?>
+            </button>
             </div>
         </form>
-    </div>
