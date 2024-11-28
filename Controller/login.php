@@ -10,30 +10,16 @@
         if(!empty($username) && !empty($pass))  {
             $username = cleanString($username);
             $pass = cleanString($pass);
-
-            
             $user = getUser($pdo, $username);
             if (is_array($user)){
                 $isMatchPassword = password_verify($pass, $user['password']);
-                if($isMatchPassword){
-                    $_SESSION['auth']= true;
+                if($isMatchPassword = true){
+                    $_SESSION['auth'] = true;
                 } else {
                     $errors[] = 'identification échoué';
                 }
             }
         }
-
     }
-    if(isset($_POST['supr_button'])){
-        $_SESSION = [];
-        session_destroy();
-    }
-
-
-
-
-
-
     require "View/login.php";
-
 ?>
