@@ -31,7 +31,7 @@
                 class="btn <?php echo isset($_GET['id']) ? 'btn-success' : 'btn-primary'; ?>"
                 name="<?php echo isset($_GET['id']) ? 'edit_button' : 'valid_button'; ?>"
         >
-            <?php  echo isset($_GET['id']) ? 'Enregistrer' : 'CrÃ©er'; ?>
+            <?php  echo isset($_GET['id']) ? 'Enregistrer' : 'Créer'; ?>
         </button>
     </div>
 </form>

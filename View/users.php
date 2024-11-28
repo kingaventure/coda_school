@@ -1,4 +1,9 @@
 <h1>Liste des utilisateurs</h1>
+
+<a href="index.php?component=user&action=create">
+    <i class="fa-solid fa-plus"></i>
+</a>
+
 <table class="table">
   <thead>
     <tr>
