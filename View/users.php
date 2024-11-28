@@ -18,7 +18,11 @@
             <i class="fa-solid <?php echo ($user['enabled']) ? 'fa-check text-success' : 'fa-solid fa-xmark text-danger' ?>">
             </i>
             </a>   
-            
+            </td>
+            <td>
+                <a href="index.php?component=users&action=delete&id=<?php echo $user['id']; ?>">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
             </td>
             
         </tr>

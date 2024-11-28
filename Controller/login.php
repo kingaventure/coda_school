@@ -11,15 +11,19 @@
             $username = cleanString($username);
             $pass = cleanString($pass);
             $user = getUser($pdo, $username);
+
+            
             $isMatchPassword = is_array($user) && password_verify($pass, $user['password']);
 
-                if($isMatchPassword){
+                if($isMatchPassword && $user['enabled']){
                     $_SESSION['auth'] = true;
                     header("Location: index.php?component=users");
+                } elseif(!$user['enabled']) {
+                    $errors[] = 'Compte désactiver';
                 } else {
                     $errors[] = 'identification échoué';
                 }
-            
+
         }
     }
     require "View/login.php";
