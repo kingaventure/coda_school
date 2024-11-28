@@ -24,6 +24,11 @@
                     <i class="fa-solid fa-trash"></i>
                 </a>
             </td>
+            <td>
+                <a href="index.php?component=user&action=edit&id=<?php echo $user['id']; ?>">
+                    <i class="fa-solid fa-pencil ms-2"></i>
+                </a>
+            </td>
             
         </tr>
     <?php endforeach; ?>
