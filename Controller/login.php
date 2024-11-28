@@ -11,6 +11,7 @@
             $username = cleanString($username);
             $pass = cleanString($pass);
 
+            
             $user = getUser($pdo, $username);
             if (is_array($user)){
                 $isMatchPassword = password_verify($pass, $user['password']);
@@ -22,6 +23,10 @@
             }
         }
 
+    }
+    if(isset($_POST['supr_button'])){
+        $_SESSION = [];
+        session_destroy();
     }
 
 

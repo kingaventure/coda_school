@@ -9,4 +9,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary" name="login_button">Valider</button>
+    <button type="submit" class="btn btn-primary" name="supr_button">Détruire</button>
 </form>
