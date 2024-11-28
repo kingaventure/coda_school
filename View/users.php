@@ -21,7 +21,7 @@
             </td>
             <td>
                 <a href="index.php?component=users&action=delete&id=<?php echo $user['id']; ?>">
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fa-solid fa-trash text-danger"></i>
                 </a>
             </td>
             <td>

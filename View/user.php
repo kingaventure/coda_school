@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Mon formulaire</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
     <div class="container">
         <?php if(!empty($errors)): ?>
             <?php  foreach ($errors as $error): ?>
@@ -41,17 +33,7 @@
                 <label class="form-check-label" for="enabled">Actif</label>
             </div>
             <div class="mb-3 d-flex justify-content-end">
-                <button type="submit" 
-                class="btn <?php echo (isset($_GET['id'])) ? 'btn-success' : 'btn-primary';  ?>"
-                name="<?php echo (isset($_GET['id'])) ? 'edit_button' : 'valid_button';  ?>"
-                
-                >
-                <?php echo isset($_GET['id']) ? 'Enregistrer' : 'Créer'; ?>
-            </button>
+                <button type="submit" class="btn btn-primary" name="edit_button"> Enregistrer</button>
             </div>
         </form>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>

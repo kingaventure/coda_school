@@ -22,10 +22,8 @@
     <div class="container">
         <?php
         if (isset($_SESSION['auth'])){
-            
             require "partials/navbar.php";
                 if(isset($_GET['component'])) {
-                    echo "rte";
                     $componentName = cleanString($_GET['component']);
                     if(file_exists("Controller/$componentName.php")){
                         require "Controller/$componentName.php";

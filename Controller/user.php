@@ -1,7 +1,7 @@
 <?php
 require "Model/user.php";
 
-if (isset($_GET['user'])) {
+if (isset($_POST['edit_button'])) {
     $username = !empty($_POST['username']) ? $_POST['username'] : null;
     $password = !empty($_POST['pass']) ? $_POST['pass'] : null;
     $confirmation = !empty($_POST['confirmation']) ? $_POST['confirmation'] : null;
@@ -25,15 +25,7 @@ if (isset($_GET['user'])) {
             $errors[] = 'email invalide';
         }
 
-        try {
-            $state = $pdo->prepare("SELECT COUNT(*) AS user_number FROM users WHERE username = :username AND id<> :id ");
-            $state->bindParam(':username', $username, PDO::PARAM_STR);
-            $state->bindParam(':id', $id, PDO::PARAM_INT);
-            $state->execute();
-            $res = $state->fetch();
-        } catch (Exception $e) {
-            $errors[] = "Erreur de verification du username {$e->getMessage()}";
-        }
+        
 
         if ($res['user_number'] !== 0) {
             $errors[] = 'Le username est déjà utilisé';
@@ -82,6 +74,26 @@ if (isset($_GET['user'])) {
         
     }
 
+}
+    
+
+if (isset($_GET['id']) && empty($errors)) {
+
+    $id =  $_GET['id'];
+
+    if(!is_numeric($id)){
+        $errors[]= 'id au mauvais format';
+    } else {
+        try {
+            $state = $pdo->prepare("SELECT username, email, enabled FROM users WHERE id = :id");
+            $state->bindParam(':id', $id, PDO::PARAM_INT);
+            $state->execute();
+            $user = $state->fetch();
+            
+        } catch (Exception $e) {
+            $errors[] = "Erreur de requete : {$e->getMessage()}";
+        }
+    }
 }
 
 
