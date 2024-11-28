@@ -11,4 +11,10 @@ function toggleEnabled(PDO $pdo, int $id): void {
     $res->bindParam(':id', $id, PDO::PARAM_INT);
     $res->execute();
 }
+
+function delete(PDO $pdo, int $id): void {
+    $res = $pdo->prepare(query:'DELETE FROM users WHERE id = :id');
+    $res->bindParam(':id', $id, PDO::PARAM_INT);
+    $res->execute();
+}
 ?>
