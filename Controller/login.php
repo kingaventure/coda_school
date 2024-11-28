@@ -11,14 +11,15 @@
             $username = cleanString($username);
             $pass = cleanString($pass);
             $user = getUser($pdo, $username);
-            if (is_array($user)){
-                $isMatchPassword = password_verify($pass, $user['password']);
-                if($isMatchPassword = true){
+            $isMatchPassword = is_array($user) && password_verify($pass, $user['password']);
+
+                if($isMatchPassword){
                     $_SESSION['auth'] = true;
+                    header("Location: index.php?component=users");
                 } else {
                     $errors[] = 'identification échoué';
                 }
-            }
+            
         }
     }
     require "View/login.php";
