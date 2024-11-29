@@ -19,16 +19,24 @@
             <td><?php  echo $user['id'] ?></td>
             <td><?php  echo $user['username'] ?></td>
             <td>
-            <a href="index.php?component=users&action=toggle_enabled&id=<?php echo $user['id']; ?>">
-            <i class="fa-solid <?php echo ($user['enabled']) ? 'fa-check text-success' : 'fa-solid fa-xmark text-danger' ?>">
+              <?php if($user['id'] !== $_SESSION['user_id']) : ?>
+              <a href="index.php?component=users&action=toggle_enabled&id=<?php echo $user['id']; ?>">
+              <i class="fa-solid <?php echo ($user['enabled']) ? 'fa-check text-success' : 'fa-solid fa-xmark text-danger' ?>">
             </i>
-            </a>   
+            </a>
+                <?php else: ?>
+                  <i class="fa-solid <?php echo ($user['enabled']) ? 'fa-check text-success' : 'fa-solid fa-xmark text-danger' ?>"
+                  title = "eee">
+                    
+                  <?php endif; ?>
             </td>
             <td>
+              <?php if($user['id'] !== $_SESSION['user_id']) : ?>
                 <a href="index.php?component=users&action=delete&id=<?php echo $user['id']; ?>"
                 onclick="return confirm('Etes vous sur de vouloir supprimer')";>
                     <i class="fa-solid fa-trash text-danger"></i>
                 </a>
+                <?php endif; ?>
             </td>
             <td>
                 <a href="index.php?component=user&action=edit&id=<?php echo $user['id']; ?>">
