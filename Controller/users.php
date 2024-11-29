@@ -14,7 +14,8 @@
         }
         
     }
-    $users= getAll($pdo);    
+    $search = isset($_POST['search']) ? $_POST['search'] : null;
+    $users= getAll($pdo, $search);    
     require "View/users.php";
 
     ?>

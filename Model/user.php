@@ -3,7 +3,7 @@
 function get(PDO $pdo, int $id)
 {
     try {
-        $state = $pdo->prepare("SELECT username, email, enabled FROM users WHERE id = :id");
+        $state = $pdo->prepare("SELECT * FROM users WHERE id = :id");
         $state->bindParam(':id', $id, PDO::PARAM_INT);
         $state->execute();
         return $state->fetch();

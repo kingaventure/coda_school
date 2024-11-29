@@ -21,6 +21,7 @@
                 class="form-check-input"
                 id="enabled"
                 name="enabled"
+                <?php echo ($user['id'] === $_SESSION['user_id']) ? 'disabled' : null ?>
             <?php  echo (isset($user['enabled']) && $user['enabled']) ? 'checked' : null; ?>
         >
         <label class="form-check-label" for="enabled">Actif</label>
