@@ -7,10 +7,34 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Username</th>
-      <th scope="col">Actif</th>
-      <th scope="col">Action</th>
+      <th scope="col">
+        <a href="index.php?component=users&sortby=id">
+        Id
+        </a>
+      </th>
+
+      <th scope="col">
+        <a href="index.php?component=users&sortby=username">
+        Username
+        </a>
+      </th>
+
+      <th scope="col">
+        <a href="index.php?component=users&sortby=email">
+        Email
+        </a>
+      </th>
+
+      <th scope="col">
+        <a href="index.php?component=users&sortby=enabled">
+        Actif
+        </a>
+      </th>
+
+      <th scope="col">
+        Action
+      </th>
+
     </tr>
   </thead>
   <tbody>
@@ -18,6 +42,7 @@
         <tr>
             <td><?php  echo $user['id'] ?></td>
             <td><?php  echo $user['username'] ?></td>
+            <td><?php  echo $user['email'] ?></td>
             <td>
               <?php if($user['id'] !== $_SESSION['user_id']) : ?>
               <a href="index.php?component=users&action=toggle_enabled&id=<?php echo $user['id']; ?>">

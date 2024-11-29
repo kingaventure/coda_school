@@ -14,8 +14,10 @@
         }
         
     }
-    $search = isset($_POST['search']) ? $_POST['search'] : null;
-    $users= getAll($pdo, $search);    
+    $search = isset($_POST['search']) ? cleanString($_POST['search']) : null;
+    $sortBy = isset($_GET['sortby']) ? cleanString($_GET['sortby']) : null;
+
+    $users= getAll($pdo, $search, $sortBy);    
     require "View/users.php";
 
     ?>
