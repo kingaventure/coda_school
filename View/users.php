@@ -25,7 +25,8 @@
             </a>   
             </td>
             <td>
-                <a href="index.php?component=users&action=delete&id=<?php echo $user['id']; ?>">
+                <a href="index.php?component=users&action=delete&id=<?php echo $user['id']; ?>"
+                onclick="return confirm('Etes vous sur de vouloir supprimer')";>
                     <i class="fa-solid fa-trash text-danger"></i>
                 </a>
             </td>
